@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    font-family: 'roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(158, 144, 124);
+}
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: bisque;
+    padding: 30px;
+}
+
+#novaTarefa {
+    border: none;
+    background-color: rgb(168, 146, 119);
+    color: aliceblue;
+    font-size: 16px;
+    padding: 11px 40px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0 ;
+}
+
+.container .coluna {
+    width: 250px;
+    height: 600px;
+    background-color: rgb(53, 48, 42);
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.container .coluna .cabeca {
+    background-color: rgb(238, 219, 190);
+    text-align: center;
+    padding: 15px;
+    overflow: none;
+}
