@@ -50,3 +50,78 @@ body {
     padding: 15px;
     overflow: none;
 }
+
+#modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal .box {
+    background-color: black;
+    width: 400px;
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+#modal .box .head {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    border-bottom: 1px solid #DDD;
+}
+
+#modal .box .head span {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+}
+
+#modal .box .head button {
+    border: none;
+    background: none;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #333;
+}
+
+#modal .box .form {
+    padding: 20px;
+}
+
+#modal .box .form .form-group {
+    margin-bottom: 15px;
+}
+
+#modal .box .form label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+#modal .box .form textarea,
+#modal .box .form select {
+    width: 100%;
+    border-radius: 7px;
+    font-size: 14px;
+    border: 1px solid #999;
+    color: #333;
+}
+
+#modal .box .form textarea {
+    width: 100%;
+}
+
+#modal .box .form select {
+  
+    padding: 10px;
+  
+}
