@@ -1,3 +1,8 @@
+:root {
+    --primario-color: rgb(104, 90, 73);
+    --segundaria-color: rgb(147, 135, 118);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +12,7 @@
 }
 
 body {
-    background-color: rgb(158, 144, 124);
+    background-color: var(--segundaria-color);
 }
 .header {
     width: 100%;
@@ -18,11 +23,11 @@ body {
     padding: 30px;
 }
 
-#novaTarefa {
+.primario {
     border: none;
-    background-color: rgb(168, 146, 119);
+    background-color: var(--primario-color);
     color: aliceblue;
-    font-size: 16px;
+    font-size: 19px;
     padding: 11px 40px;
     border-radius: 6px;
     cursor: pointer;
@@ -45,7 +50,7 @@ body {
 }
 
 .container .coluna .cabeca {
-    background-color: rgb(238, 219, 190);
+    background-color: var(--primario-color);
     text-align: center;
     padding: 15px;
     overflow: none;
@@ -58,13 +63,13 @@ body {
     left: 0;
     right: 0;
     background-color: rgba(0,0,0, 0.3);
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 }
 
 #modal .box {
-    background-color: black;
+    background-color: rgb(181, 164, 141);
     width: 400px;
     border-radius: 7px;
     overflow: hidden;
@@ -97,7 +102,7 @@ body {
 }
 
 #modal .box .form .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 #modal .box .form label {
@@ -108,12 +113,13 @@ body {
 }
 
 #modal .box .form textarea,
-#modal .box .form select {
+#modal .box .form select,
+#modal .box .form input {
     width: 100%;
     border-radius: 7px;
     font-size: 14px;
-    border: 1px solid #999;
-    color: #333;
+    border: 1px solid #000000;
+    color: #000000;
 }
 
 #modal .box .form textarea {
@@ -124,4 +130,13 @@ body {
   
     padding: 10px;
   
+}
+
+#modal .box .form input {
+    padding: 10px;
+}
+
+#modal .box .form button {
+    display: block;
+    margin-left: auto;
 }

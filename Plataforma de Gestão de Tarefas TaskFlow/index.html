@@ -16,7 +16,7 @@
 <body>
     <div class="header">
         <h1>TaskFlow</h1>
-        <button id="novaTarefa">nova tarefa</button>
+        <button class="primario" onclick="abrirModal()">nova tarefa</button>
     </div>
 
     <div class="container">
@@ -58,18 +58,18 @@
         <div class="box">
             <div class="head">
                 <span>Nova tarefa</span>
-                <button>X</button>
+                <button onclick="fecharModal()">X</button>
             </div>
 
             <div class="form">
                 <div class="form-group">
                     <label for="descripion">descriçao</label>
-                    <textarea id="descripion" rows="3"></textarea>
+                    <textarea id="descript" rows="3"></textarea>
                 </div>
 
                 <div class="form-group">
                     <label for="">prioridade</label>
-                    <select id="priority">
+                    <select id="prioridade">
                         <option>baixa</option>
                         <option>media</option>
                         <option>alta</option>
@@ -81,10 +81,11 @@
                     <input type="date" id="deadline">
                 </div>
 
-                <button>salvar</button>
+                <button class="primario" onclick="criarTask()">cadastrar</button>
             </div>
         </div>
     </div>
+    <script src="./src/js/index.js"></script>
 </body>
 
 </html>
