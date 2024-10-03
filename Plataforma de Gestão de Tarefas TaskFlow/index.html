@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="PT-br">
 
 <head>
     <meta charset="UTF-8">
@@ -7,9 +7,8 @@
     <title>TaskFlow</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,303;1,303&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,303;1,303&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./src/css/style.css">
 </head>
 
@@ -20,11 +19,12 @@
     </div>
 
     <div class="container">
-        <div class="coluna">
+
+        <div class="coluna" id="todoColumn">
             <div class="cabeca">
                 <span>a fazer</span>
             </div>
-            <div class="corpo">
+            <div class="body">
 
             </div>
         </div>
@@ -32,7 +32,7 @@
             <div class="cabeca">
                 <span>em progreço</span>
             </div>
-            <div class="corpo">
+            <div class="body">
 
             </div>
         </div>
@@ -40,7 +40,7 @@
             <div class="cabeca">
                 <span>finalizado</span>
             </div>
-            <div class="corpo">
+            <div class="body">
 
             </div>
         </div>
@@ -48,7 +48,7 @@
             <div class="cabeca">
                 <span>arquivado</span>
             </div>
-            <div class="corpo">
+            <div class="body">
 
             </div>
         </div>
@@ -63,7 +63,7 @@
 
             <div class="form">
                 <div class="form-group">
-                    <label for="descripion">descriçao</label>
+                    <label for="descript">descriçao</label>
                     <textarea id="descript" rows="3"></textarea>
                 </div>
 
@@ -85,7 +85,10 @@
             </div>
         </div>
     </div>
+
+    <script src="./src/js/moment.min.js"></script>
     <script src="./src/js/index.js"></script>
+
 </body>
 
 </html>

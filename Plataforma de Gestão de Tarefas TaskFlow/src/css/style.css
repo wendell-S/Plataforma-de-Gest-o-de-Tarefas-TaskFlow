@@ -1,6 +1,7 @@
 :root {
     --primario-color: rgb(104, 90, 73);
     --segundaria-color: rgb(147, 135, 118);
+    --cor-letras: rgb(255, 255, 255);
 }
 
 * {
@@ -14,19 +15,20 @@
 body {
     background-color: var(--segundaria-color);
 }
+
 .header {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: bisque;
+    background-color: rgb(248, 215, 174);
     padding: 30px;
 }
 
 .primario {
     border: none;
     background-color: var(--primario-color);
-    color: aliceblue;
+    color: rgb(210, 234, 255);
     font-size: 19px;
     padding: 11px 40px;
     border-radius: 6px;
@@ -41,20 +43,43 @@ body {
     padding: 50px 0 ;
 }
 
-.container .coluna {
-    width: 250px;
-    height: 600px;
-    background-color: rgb(53, 48, 42);
-    border-radius: 18px;
-    overflow: hidden;
-}
+    .container .coluna {
+        width: 250px;
+        height: 600px;
+        background-color: rgb(53, 48, 42);
+        border-radius: 18px;
+        overflow: hidden;
+    }
 
-.container .coluna .cabeca {
-    background-color: var(--primario-color);
-    text-align: center;
-    padding: 15px;
-    overflow: none;
-}
+        .container .coluna .cabeca {
+            background-color: var(--primario-color);
+            text-align: center;
+            padding: 15px;
+            overflow: none;
+        }
+
+            .container .coluna .body {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+            }
+
+                .container .coluna .body .card {
+                    background-color: var(--segundaria-color);
+                    border-radius: 7px;
+                    padding: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                }
+
+                    .container .coluna .body .card .info {
+                        font-size: 14px;
+                        display: flex;
+                        color: var(--cor-letras);
+                        flex-direction: column;
+                    }
 
 #modal {
     position: fixed;
@@ -140,3 +165,4 @@ body {
     display: block;
     margin-left: auto;
 }
+
