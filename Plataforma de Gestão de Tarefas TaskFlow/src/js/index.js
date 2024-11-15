@@ -2,24 +2,43 @@ const $modal = document.getElementById('modal');
 const $descriçaoInput = document.getElementById('descript')
 const $prioridadeInput = document.getElementById('prioridade')
 const $deadline = document.getElementById('deadline')
+const $idInput = document.getElementById('idInput')
 
 const $todoColumnBody = document.querySelector('#todoColumn .body')
 
 let todoList = [];
 
-function abrirModal() {
+function abrirModal(id) {
     $modal.style.display = "flex"
+
+    if (id) {
+        const index = todoList.findIndex(function (task) {
+            return task.id == id;
+        });
+
+        const task = todoList[index];
+
+        $idInput.value = task.id;
+        $descriçaoInput.value = task.descriçao;
+        $prioridadeInput.value = task.prioridade;
+        $deadline.value = task.deadline;
+    } 
 }
 
 function fecharModal() {
     $modal.style.display = "none"
+    
+    $idInput.value = "";
+    $descriçaoInput.value = "";
+    $prioridadeInput.value = "";
+    $deadline.value = "";
 }
 
 function generateCards() {
     const todoListHtml = todoList.map(function(task){
         const formatarDate = moment(task.deadline).format('DD/MM/YYYY')
         return `
-          <div class="card">
+          <div class="card" ondblclick="abrirModal(${task.id})">
              <div class="info">
                 <b>Descriçao</b>
                 <span>${task.descriçao}</span>
@@ -44,6 +63,7 @@ function generateCards() {
 function criarTask() {
 
     const newTask = {
+        id: Math.floor(Math.random() * 999999),
         descriçao: $descriçaoInput.value,
         prioridade: $prioridadeInput.value,
         deadline: $deadline.value,
