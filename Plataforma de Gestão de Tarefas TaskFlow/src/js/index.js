@@ -50,10 +50,24 @@ function fecharModal() {
 }
 
 function generateCards() {
-    const todoListHtml = todoList.map(function(task){
+    $todoColumnBody.innerHTML = '';
+    $inProgressColumnBody.innerHTML = '';
+    $doneColumnBody.innerHTML = '';
+    $archivedColumnBody.innerHTML = '';
+
+    todoList.forEach(function(task) {
         const formatarDate = moment(task.deadline).format('DD/MM/YYYY');
-        return `
-          <div class="card" draggable="true" ondragstart="drag(event)" id="task-${task.id}">
+        const daysLeft = moment(task.deadline).diff(moment(), 'days');
+        let urgencyClass = '';
+
+        if (daysLeft <= 3) {
+            urgencyClass = 'urgent';
+        } else if (daysLeft <= 7) {
+            urgencyClass = 'warning';
+        }
+
+        const taskHtml = `
+          <div class="card ${urgencyClass}" draggable="true" ondragstart="drag(event)" id="task-${task.id}">
              <div class="info">
                 <b>Descrição</b>
                 <span>${task.descriçao}</span>
@@ -69,12 +83,22 @@ function generateCards() {
              <button class="delete-btn" onclick="deletarTask(${task.id})">Deletar</button>
           </div>
         `;
-    });
 
-    $todoColumnBody.innerHTML = todoListHtml.join('');
-    $inProgressColumnBody.innerHTML = '';
-    $doneColumnBody.innerHTML = '';
-    $archivedColumnBody.innerHTML = '';
+        switch (task.coluna) {
+            case 'todo':
+                $todoColumnBody.innerHTML += taskHtml;
+                break;
+            case 'inProgress':
+                $inProgressColumnBody.innerHTML += taskHtml;
+                break;
+            case 'done':
+                $doneColumnBody.innerHTML += taskHtml;
+                break;
+            case 'archived':
+                $archivedColumnBody.innerHTML += taskHtml;
+                break;
+        }
+    });
 }
 
 function criarTask() {
@@ -83,6 +107,7 @@ function criarTask() {
         descriçao: $descriçaoInput.value,
         prioridade: $prioridadeInput.value,
         deadline: $deadline.value,
+        coluna: 'todo'
     };
 
     todoList.push(newTask);
@@ -112,7 +137,14 @@ function drop(event) {
     event.preventDefault();
     const data = event.dataTransfer.getData("text");
     const taskElement = document.getElementById(data);
+    const coluna = event.target.closest('.coluna').id;
+
+    const taskId = parseInt(data.split('-')[1]);
+    const taskIndex = todoList.findIndex(task => task.id === taskId);
+    todoList[taskIndex].coluna = coluna.replace('Column', '');
+
     event.target.closest('.body').appendChild(taskElement);
+    salvarTarefas();
 }
 
 // Carregar tarefas ao iniciar

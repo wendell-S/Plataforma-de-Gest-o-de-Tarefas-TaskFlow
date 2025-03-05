@@ -1,11 +1,11 @@
 :root {
     --primario-color: #4CAF50;
-    --segundaria-color: #f0f0f0;
-    --cor-letras: #333;
-    --cor-fundo: #fff;
-    --cor-borda: #ddd;
-    --cor-modal-fundo: rgba(0, 0, 0, 0.5);
-    --cor-modal-caixa: #fff;
+    --segundaria-color: #2e2e2e; /* Cinza mais escuro */
+    --cor-letras: #e0e0e0; /* Cinza claro para texto */
+    --cor-fundo: #3a3a3a; /* Cinza escuro para fundo */
+    --cor-borda: #555555; /* Cinza intermediário para bordas */
+    --cor-modal-fundo: rgba(0, 0, 0, 0.7); /* Fundo do modal mais escuro */
+    --cor-modal-caixa: #424242; /* Caixa do modal em cinza escuro */
 }
 
 * {
@@ -60,9 +60,11 @@ body {
 .coluna {
     width: 300px;
     background-color: var(--cor-fundo);
-    border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    border: 2px solid;
+    border-image: linear-gradient(to bottom right, #00ff00, #00ffff) 1;
+    /* Removido border-radius */
 }
 
 .coluna .cabeca {
@@ -103,6 +105,14 @@ body {
 .card .info {
     font-size: 14px;
     color: var(--cor-letras);
+}
+
+.card.warning {
+    background-color: #ffcc00; /* Laranja */
+}
+
+.card.urgent {
+    background-color: #ff4d4d; /* Vermelho */
 }
 
 #modal {
@@ -171,6 +181,7 @@ body {
     border: 1px solid var(--cor-borda);
     padding: 10px;
     color: var(--cor-letras);
+    background-color: var(--cor-fundo);
 }
 
 #modal .box .form button {
