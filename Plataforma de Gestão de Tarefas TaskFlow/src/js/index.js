@@ -118,11 +118,17 @@ function criarTask() {
 }
 
 function deletarTask(id) {
-    todoList = todoList.filter(function(task) {
-        return task.id !== id;
-    });
-    generateCards();
-    salvarTarefas();
+    const taskIndex = todoList.findIndex(task => task.id === id);
+    const taskElement = document.getElementById(`task-${id}`);
+
+    if (taskElement) {
+        taskElement.classList.add('desintegrar');
+        setTimeout(() => {
+            todoList.splice(taskIndex, 1);
+            generateCards();
+            salvarTarefas();
+        }, 500); // Tempo da animação
+    }
 }
 
 function allowDrop(event) {

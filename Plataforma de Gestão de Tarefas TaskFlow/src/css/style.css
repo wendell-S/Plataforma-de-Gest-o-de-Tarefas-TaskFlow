@@ -34,6 +34,17 @@ body {
     font-size: 24px;
 }
 
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
 .primario {
     border: none;
     background-color: var(--cor-fundo);
@@ -115,6 +126,21 @@ body {
     background-color: #FF7043; /* Laranja escuro */
 }
 
+@keyframes desintegrar {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+.desintegrar {
+    animation: desintegrar 0.5s forwards;
+}
+
 #modal {
     position: fixed;
     top: 0;
@@ -168,7 +194,7 @@ body {
 #modal .box .form label {
     display: block;
     font-size: 14px;
-    color: var(--cor-letras);
+    color: #ffffff; /* Cor do texto mais clara */
     margin-bottom: 5px;
 }
 
@@ -180,7 +206,7 @@ body {
     font-size: 14px;
     border: 1px solid var(--cor-borda);
     padding: 10px;
-    color: var(--cor-letras);
+    color: #ffffff; /* Cor do texto mais clara */
     background-color: var(--cor-fundo);
 }
 
