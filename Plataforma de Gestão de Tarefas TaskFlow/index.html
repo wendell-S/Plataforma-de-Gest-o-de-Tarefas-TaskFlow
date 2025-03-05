@@ -7,46 +7,45 @@
     <title>TaskFlow</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,303;1,303&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/style.css">
 </head>
 
 <body>
     <div class="header">
         <h1>TaskFlow</h1>
-        <button class="primario" onclick="abrirModal()">nova tarefa</button>
+        <button class="primario" onclick="abrirModal()">Nova Tarefa</button>
     </div>
 
     <div class="container">
 
-        <div class="coluna" id="todoColumn">
+        <div class="coluna" id="todoColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
             <div class="cabeca">
-                <span>a fazer</span>
+                <span>A Fazer</span>
             </div>
             <div class="body">
 
             </div>
         </div>
-        <div class="coluna">
+        <div class="coluna" id="inProgressColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
             <div class="cabeca">
-                <span>em progreço</span>
+                <span>Em Progresso</span>
             </div>
             <div class="body">
 
             </div>
         </div>
-        <div class="coluna">
+        <div class="coluna" id="doneColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
             <div class="cabeca">
-                <span>finalizado</span>
+                <span>Finalizado</span>
             </div>
             <div class="body">
 
             </div>
         </div>
-        <div class="coluna">
+        <div class="coluna" id="archivedColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
             <div class="cabeca">
-                <span>arquivado</span>
+                <span>Arquivado</span>
             </div>
             <div class="body">
 
@@ -57,7 +56,7 @@
     <div id="modal">
         <div class="box">
             <div class="head">
-                <span>Nova tarefa</span>
+                <span>Nova Tarefa</span>
                 <button onclick="fecharModal()">X</button>
             </div>
 
@@ -65,25 +64,25 @@
                 <input type="hidden" id="idInput">
 
                 <div class="form-group">
-                    <label for="descript">descriçao</label>
+                    <label for="descript">Descrição</label>
                     <textarea id="descript" rows="3"></textarea>
                 </div>
 
                 <div class="form-group">
-                    <label for="">prioridade</label>
+                    <label for="prioridade">Prioridade</label>
                     <select id="prioridade">
-                        <option>baixa</option>
-                        <option>media</option>
-                        <option>alta</option>
+                        <option>Baixa</option>
+                        <option>Média</option>
+                        <option>Alta</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="">prazo</label>
+                    <label for="deadline">Prazo</label>
                     <input type="date" id="deadline">
                 </div>
 
-                <button class="primario" onclick="criarTask()">cadastrar</button>
+                <button class="primario" onclick="criarTask()">Cadastrar</button>
             </div>
         </div>
     </div>
