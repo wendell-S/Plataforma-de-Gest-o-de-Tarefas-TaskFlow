@@ -1,11 +1,11 @@
 :root {
-    --primario-color: #4CAF50;
-    --segundaria-color: #2e2e2e; /* Cinza mais escuro */
-    --cor-letras: #e0e0e0; /* Cinza claro para texto */
-    --cor-fundo: #3a3a3a; /* Cinza escuro para fundo */
-    --cor-borda: #555555; /* Cinza intermediário para bordas */
-    --cor-modal-fundo: rgba(0, 0, 0, 0.7); /* Fundo do modal mais escuro */
-    --cor-modal-caixa: #424242; /* Caixa do modal em cinza escuro */
+    --primario-color: #34261c; /* Marrom escuro */
+    --segundaria-color: #D7CCC8; /* Marrom claro */
+    --cor-letras: #2a1c1a; /* Marrom muito escuro para texto */
+    --cor-fundo: #A1887F; /* Marrom médio para fundo */
+    --cor-borda: #8D6E63; /* Marrom intermediário para bordas */
+    --cor-modal-fundo: rgba(67, 42, 38, 0.7); /* Fundo do modal mais escuro */
+    --cor-modal-caixa: #5D4037; /* Caixa do modal em marrom escuro */
 }
 
 * {
@@ -63,7 +63,7 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     border: 2px solid;
-    border-image: linear-gradient(to bottom right, #00ff00, #00ffff) 1;
+    border-image: linear-gradient(to bottom right, #8D6E63, #D7CCC8) 1;
     /* Removido border-radius */
 }
 
@@ -108,11 +108,11 @@ body {
 }
 
 .card.warning {
-    background-color: #ffcc00; /* Laranja */
+    background-color: #FFCC80; /* Laranja claro */
 }
 
 .card.urgent {
-    background-color: #ff4d4d; /* Vermelho */
+    background-color: #FF7043; /* Laranja escuro */
 }
 
 #modal {
@@ -201,7 +201,7 @@ body {
 }
 
 .delete-btn {
-    background-color: #ff4d4d;
+    background-color: #FF7043;
     color: white;
     border: none;
     padding: 5px 10px;
@@ -211,6 +211,6 @@ body {
 }
 
 .delete-btn:hover {
-    background-color: #ff1a1a;
+    background-color: #D84315;
 }
 
