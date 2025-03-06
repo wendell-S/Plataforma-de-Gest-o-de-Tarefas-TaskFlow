@@ -66,8 +66,10 @@ function generateCards() {
             urgencyClass = 'warning';
         }
 
+        const prioridadeClass = task.prioridade.toLowerCase();
+
         const taskHtml = `
-          <div class="card ${urgencyClass}" draggable="true" ondragstart="drag(event)" id="task-${task.id}">
+          <div class="card ${urgencyClass} ${prioridadeClass}" draggable="true" ondragstart="drag(event)" id="task-${task.id}">
              <div class="info">
                 <b>Descrição</b>
                 <span>${task.descriçao}</span>
@@ -80,6 +82,7 @@ function generateCards() {
                 <b>Prazo</b>
                 <span>${formatarDate}</span>
              </div>
+             <button class="edit-btn" onclick="editarTask(${task.id})">Editar</button>
              <button class="delete-btn" onclick="deletarTask(${task.id})">Deletar</button>
           </div>
         `;
@@ -117,6 +120,10 @@ function criarTask() {
     salvarTarefas();
 }
 
+function editarTask(id) {
+    abrirModal(id);
+}
+
 function deletarTask(id) {
     const taskIndex = todoList.findIndex(task => task.id === id);
     const taskElement = document.getElementById(`task-${id}`);
@@ -151,6 +158,19 @@ function drop(event) {
 
     event.target.closest('.body').appendChild(taskElement);
     salvarTarefas();
+}
+
+function filtrarTarefas(prioridade) {
+    const tarefasFiltradas = todoList.filter(task => task.prioridade === prioridade);
+    // Atualize a interface com as tarefas filtradas
+    // ...
+}
+
+function adicionarNotificacao(task) {
+    const daysLeft = moment(task.deadline).diff(moment(), 'days');
+    if (daysLeft <= 1) {
+        alert(`A tarefa "${task.descriçao}" está próxima do prazo!`);
+    }
 }
 
 // Carregar tarefas ao iniciar

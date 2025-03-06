@@ -104,13 +104,14 @@ body {
     background-color: var(--segundaria-color);
     border-radius: 5px;
     padding: 15px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona desfoque nas bordas */
     transition: transform 0.2s;
     cursor: move;
 }
 
 .card:hover {
     transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Aumenta o desfoque ao passar o mouse */
 }
 
 .card .info {
@@ -123,7 +124,21 @@ body {
 }
 
 .card.urgent {
-    background-color: #FF7043; /* Laranja escuro */
+    background-color: #f96a3e; /* Laranja escuro */
+}
+
+.card.baixa {
+    border: 2px solid #2eb332; /* Verde para prioridade baixa */
+    box-shadow: 0 0 10px rgba(46, 179, 50, 0.5); /* Desfoque verde */
+}
+
+.card.media {
+    border: 2px solid #FFCC00; /* Laranja para prioridade média */
+}
+
+.card.alta {
+    border: 2px solid #fd0000; /* Vermelho para prioridade alta */
+    box-shadow: 0 0 10px rgba(253, 0, 0, 0.5); /* Desfoque vermelho */
 }
 
 @keyframes desintegrar {
@@ -237,6 +252,20 @@ body {
 }
 
 .delete-btn:hover {
-    background-color: #D84315;
+    background-color: #e81818;
+}
+
+.edit-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.edit-btn:hover {
+    background-color: #45a049;
 }
 
