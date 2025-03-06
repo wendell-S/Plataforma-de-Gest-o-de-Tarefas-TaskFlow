@@ -9,13 +9,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/style.css">
-    <link rel="icon" href="/Plataforma de Gestão de Tarefas TaskFlow/src/foto/coffee.png" type="image/x-icon"> <!-- Adiciona o favicon -->
+    <link rel="icon" href="/Plataforma de Gestão de Tarefas TaskFlow/src/foto/coffee.png" type="image/x-icon">
 </head>
 
 <body>
     <div class="header">
         <div class="logo-container">
-            <img src="/Plataforma de Gestão de Tarefas TaskFlow/src/foto/coffee.png" alt="Logo" class="logo"> <!-- Adiciona a logo -->
+            <img src="/Plataforma de Gestão de Tarefas TaskFlow/src/foto/coffee.png" alt="Logo" class="logo">
             <h1>TaskFlow</h1>
         </div>
         <button class="primario" onclick="abrirModal()">Nova Tarefa</button>
@@ -25,7 +25,7 @@
 
         <div class="coluna" id="todoColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
             <div class="cabeca">
-                <span>A Fazer</span>
+                <span>A Fazer (<span id="todoCount">0</span>)</span>
             </div>
             <div class="body">
 
@@ -33,7 +33,7 @@
         </div>
         <div class="coluna" id="inProgressColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
             <div class="cabeca">
-                <span>Em Progresso</span>
+                <span>Em Progresso (<span id="inProgressCount">0</span>)</span>
             </div>
             <div class="body">
 
@@ -41,7 +41,7 @@
         </div>
         <div class="coluna" id="doneColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
             <div class="cabeca">
-                <span>Finalizado</span>
+                <span>Finalizado (<span id="doneCount">0</span>)</span>
             </div>
             <div class="body">
 
@@ -49,7 +49,7 @@
         </div>
         <div class="coluna" id="archivedColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
             <div class="cabeca">
-                <span>Arquivado</span>
+                <span>Arquivado (<span id="archivedCount">0</span>)</span>
             </div>
             <div class="body">
 

@@ -1,11 +1,11 @@
 :root {
-    --primario-color: #34261c; /* Marrom escuro */
-    --segundaria-color: #D7CCC8; /* Marrom claro */
-    --cor-letras: #2a1c1a; /* Marrom muito escuro para texto */
-    --cor-fundo: #A1887F; /* Marrom médio para fundo */
-    --cor-borda: #8D6E63; /* Marrom intermediário para bordas */
-    --cor-modal-fundo: rgba(67, 42, 38, 0.7); /* Fundo do modal mais escuro */
-    --cor-modal-caixa: #5D4037; /* Caixa do modal em marrom escuro */
+    --primario-color: #34261c;
+    --segundaria-color: #D7CCC8;
+    --cor-letras: #2a1c1a;
+    --cor-fundo: #A1887F;
+    --cor-borda: #8D6E63;
+    --cor-modal-fundo: rgba(67, 42, 38, 0.7);
+    --cor-modal-caixa: #5D4037;
 }
 
 * {
@@ -75,7 +75,6 @@ body {
     overflow: hidden;
     border: 2px solid;
     border-image: linear-gradient(to bottom right, #8D6E63, #D7CCC8) 1;
-    /* Removido border-radius */
 }
 
 .coluna .cabeca {
@@ -104,14 +103,14 @@ body {
     background-color: var(--segundaria-color);
     border-radius: 5px;
     padding: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona desfoque nas bordas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s;
     cursor: move;
 }
 
 .card:hover {
     transform: scale(1.02);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Aumenta o desfoque ao passar o mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .card .info {
@@ -120,25 +119,25 @@ body {
 }
 
 .card.warning {
-    background-color: #FFCC80; /* Laranja claro */
+    background-color: #FFCC80;
 }
 
 .card.urgent {
-    background-color: #f96a3e; /* Laranja escuro */
+    background-color: #f96a3e;
 }
 
 .card.baixa {
-    border: 2px solid #2eb332; /* Verde para prioridade baixa */
-    box-shadow: 0 0 10px rgba(46, 179, 50, 0.5); /* Desfoque verde */
+    border: 2px solid #2eb332;
+    box-shadow: 0 0 10px rgba(46, 179, 50, 0.5);
 }
 
 .card.media {
-    border: 2px solid #FFCC00; /* Laranja para prioridade média */
+    border: 2px solid #FFCC00;
 }
 
 .card.alta {
-    border: 2px solid #fd0000; /* Vermelho para prioridade alta */
-    box-shadow: 0 0 10px rgba(253, 0, 0, 0.5); /* Desfoque vermelho */
+    border: 2px solid #fd0000;
+    box-shadow: 0 0 10px rgba(253, 0, 0, 0.5);
 }
 
 @keyframes desintegrar {
@@ -209,7 +208,7 @@ body {
 #modal .box .form label {
     display: block;
     font-size: 14px;
-    color: #ffffff; /* Cor do texto mais clara */
+    color: #ffffff;
     margin-bottom: 5px;
 }
 
@@ -221,7 +220,7 @@ body {
     font-size: 14px;
     border: 1px solid var(--cor-borda);
     padding: 10px;
-    color: #ffffff; /* Cor do texto mais clara */
+    color: #ffffff;
     background-color: var(--cor-fundo);
 }
 

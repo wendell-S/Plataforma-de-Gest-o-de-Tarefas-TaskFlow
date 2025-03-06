@@ -3,6 +3,7 @@ const $descriçaoInput = document.getElementById('descript');
 const $prioridadeInput = document.getElementById('prioridade');
 const $deadline = document.getElementById('deadline');
 const $idInput = document.getElementById('idInput');
+const $searchInput = document.getElementById('search');
 
 const $todoColumnBody = document.querySelector('#todoColumn .body');
 const $inProgressColumnBody = document.querySelector('#inProgressColumn .body');
@@ -102,6 +103,8 @@ function generateCards() {
                 break;
         }
     });
+
+    updateTaskCounts();
 }
 
 function criarTask() {
@@ -134,7 +137,7 @@ function deletarTask(id) {
             todoList.splice(taskIndex, 1);
             generateCards();
             salvarTarefas();
-        }, 500); // Tempo da animação
+        }, 500);
     }
 }
 
@@ -158,12 +161,11 @@ function drop(event) {
 
     event.target.closest('.body').appendChild(taskElement);
     salvarTarefas();
+    updateTaskCounts(); // Atualiza a contagem de tarefas em tempo real
 }
 
 function filtrarTarefas(prioridade) {
     const tarefasFiltradas = todoList.filter(task => task.prioridade === prioridade);
-    // Atualize a interface com as tarefas filtradas
-    // ...
 }
 
 function adicionarNotificacao(task) {
@@ -173,6 +175,29 @@ function adicionarNotificacao(task) {
     }
 }
 
-// Carregar tarefas ao iniciar
+function buscarTarefas() {
+    const termo = $searchInput.value.toLowerCase();
+    const tarefasFiltradas = todoList.filter(task => task.descriçao.toLowerCase().includes(termo));
+}
+
+function ordenarTarefas(criterio) {
+    todoList.sort((a, b) => {
+        if (criterio === 'data') {
+            return new Date(a.deadline) - new Date(b.deadline);
+        } else if (criterio === 'prioridade') {
+            const prioridades = ['baixa', 'media', 'alta'];
+            return prioridades.indexOf(a.prioridade.toLowerCase()) - prioridades.indexOf(b.prioridade.toLowerCase());
+        }
+    });
+    generateCards();
+}
+
+function updateTaskCounts() {
+    document.getElementById('todoCount').innerText = $todoColumnBody.children.length;
+    document.getElementById('inProgressCount').innerText = $inProgressColumnBody.children.length;
+    document.getElementById('doneCount').innerText = $doneColumnBody.children.length;
+    document.getElementById('archivedCount').innerText = $archivedColumnBody.children.length;
+}
+
 carregarTarefas();
 
