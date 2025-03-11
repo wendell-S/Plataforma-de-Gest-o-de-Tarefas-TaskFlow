@@ -72,9 +72,10 @@ function generateCards() {
         }
 
         const prioridadeClass = task.prioridade.toLowerCase();
+        const concluidaClass = task.concluida ? 'concluida' : '';
 
         const taskHtml = `
-          <div class="card ${urgencyClass} ${prioridadeClass}" draggable="true" ondragstart="drag(event)" id="task-${task.id}">
+          <div class="card ${urgencyClass} ${prioridadeClass} ${concluidaClass}" draggable="true" ondragstart="drag(event)" id="task-${task.id}">
              <div class="info">
                 <b>Descrição</b>
                 <span>${task.descriçao}</span>
@@ -89,6 +90,7 @@ function generateCards() {
              </div>
              <button class="edit-btn" onclick="editarTask(${task.id})">Editar</button>
              <button class="delete-btn" onclick="deletarTask(${task.id})">Deletar</button>
+             <button class="concluida-btn" onclick="marcarConcluida(${task.id})">Concluir</button>
           </div>
         `;
 
@@ -117,7 +119,8 @@ function criarTask() {
         descriçao: $descriçaoInput.value,
         prioridade: $prioridadeInput.value,
         deadline: $deadline.value,
-        coluna: 'todo'
+        coluna: 'todo',
+        concluida: false
     };
 
     todoList.push(newTask);
@@ -143,6 +146,13 @@ function deletarTask(id) {
             salvarTarefas();
         }, 500);
     }
+}
+
+function marcarConcluida(id) {
+    const taskIndex = todoList.findIndex(task => task.id === id);
+    todoList[taskIndex].concluida = !todoList[taskIndex].concluida;
+    generateCards();
+    salvarTarefas();
 }
 
 function allowDrop(event) {

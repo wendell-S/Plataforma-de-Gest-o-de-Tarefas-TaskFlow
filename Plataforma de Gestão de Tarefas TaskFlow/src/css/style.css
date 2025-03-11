@@ -140,6 +140,11 @@ body {
     box-shadow: 0 0 10px rgba(253, 0, 0, 0.5);
 }
 
+.card.concluida {
+    background-color: #d3d3d3; /* Tom cinza */
+    text-decoration: line-through; /* Riscar o texto */
+}
+
 @keyframes desintegrar {
     0% {
         opacity: 1;
@@ -268,6 +273,20 @@ body {
     background-color: #45a049;
 }
 
+.concluida-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.concluida-btn:hover {
+    background-color: #45a049;
+}
+
 .calendario {
     display: none;
     position: fixed;
@@ -311,7 +330,7 @@ body {
     margin-top: 20px;
 }
 
-.calendario-nav button {
+calendario-nav button {
     background-color: var(--primario-color);
     color: var(--cor-fundo);
     border: none;
