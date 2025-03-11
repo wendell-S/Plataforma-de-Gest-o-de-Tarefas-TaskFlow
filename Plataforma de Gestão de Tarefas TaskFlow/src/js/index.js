@@ -9,8 +9,12 @@ const $todoColumnBody = document.querySelector('#todoColumn .body');
 const $inProgressColumnBody = document.querySelector('#inProgressColumn .body');
 const $doneColumnBody = document.querySelector('#doneColumn .body');
 const $archivedColumnBody = document.querySelector('#archivedColumn .body');
+const $calendario = document.getElementById('calendario');
+const $calendarioBody = document.getElementById('calendario-body');
+const $calendarioMesAno = document.getElementById('calendario-mes-ano');
 
 let todoList = [];
+let mesAtual = moment();
 
 function salvarTarefas() {
     localStorage.setItem('todoList', JSON.stringify(todoList));
@@ -197,6 +201,48 @@ function updateTaskCounts() {
     document.getElementById('inProgressCount').innerText = $inProgressColumnBody.children.length;
     document.getElementById('doneCount').innerText = $doneColumnBody.children.length;
     document.getElementById('archivedCount').innerText = $archivedColumnBody.children.length;
+}
+
+function exibirCalendario() {
+    $calendario.style.display = "block";
+    atualizarCalendario();
+}
+
+function atualizarCalendario() {
+    $calendarioBody.innerHTML = ""; // Limpa o conteúdo anterior
+    $calendarioMesAno.innerText = mesAtual.format('MMMM YYYY');
+
+    const diasNoMes = mesAtual.daysInMonth();
+    const primeiroDia = mesAtual.startOf('month').day();
+
+    let calendarioHtml = "<table><tr>";
+    for (let i = 0; i < primeiroDia; i++) {
+        calendarioHtml += "<td></td>";
+    }
+    for (let dia = 1; dia <= diasNoMes; dia++) {
+        if ((dia + primeiroDia - 1) % 7 === 0) {
+            calendarioHtml += "</tr><tr>";
+        }
+        calendarioHtml += `<td onclick="selecionarData(${dia})">${dia}</td>`;
+    }
+    calendarioHtml += "</tr></table>";
+
+    $calendarioBody.innerHTML = calendarioHtml;
+}
+
+function mudarMes(direcao) {
+    mesAtual.add(direcao, 'months');
+    atualizarCalendario();
+}
+
+function selecionarData(dia) {
+    const dataSelecionada = mesAtual.date(dia).format('YYYY-MM-DD');
+    $deadline.value = dataSelecionada;
+    fecharCalendario();
+}
+
+function fecharCalendario() {
+    $calendario.style.display = "none";
 }
 
 carregarTarefas();

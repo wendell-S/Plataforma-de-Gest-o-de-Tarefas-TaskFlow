@@ -268,3 +268,73 @@ body {
     background-color: #45a049;
 }
 
+.calendario {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--cor-modal-caixa);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 300px; /* Ajuste a largura do calendário */
+}
+
+.calendario-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendario-header h2 {
+    margin: 0;
+    color: var(--cor-fundo);
+}
+
+.calendario-header #calendario-close {
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--cor-fundo);
+}
+
+.calendario-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.calendario-nav button {
+    background-color: var(--primario-color);
+    color: var(--cor-fundo);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.calendario-nav button:hover {
+    background-color: var(--cor-borda);
+}
+
+.calendario table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.calendario td {
+    width: 14.28%;
+    height: 40px;
+    text-align: center;
+    border: 1px solid var(--cor-borda);
+    color: var(--cor-fundo);
+    cursor: pointer; /* Adiciona cursor de ponteiro para dias selecionáveis */
+}
+
+.calendario td:hover {
+    background-color: var(--cor-borda); /* Adiciona efeito de hover */
+}
+

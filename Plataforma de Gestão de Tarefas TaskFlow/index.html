@@ -19,6 +19,7 @@
             <h1>TaskFlow</h1>
         </div>
         <button class="primario" onclick="abrirModal()">Nova Tarefa</button>
+        <button class="primario" onclick="exibirCalendario()">Calendário</button> <!-- Botão para exibir o calendário -->
     </div>
 
     <div class="container">
@@ -89,6 +90,19 @@
                 <button class="primario" onclick="criarTask()">Cadastrar</button>
             </div>
         </div>
+    </div>
+
+    <div id="calendario" class="calendario">
+        <div class="calendario-header">
+            <span id="calendario-close" onclick="fecharCalendario()">X</span>
+            <h2>Calendário</h2>
+            <div class="calendario-nav">
+                <button onclick="mudarMes(-1)">&#9664;</button>
+                <span id="calendario-mes-ano"></span>
+                <button onclick="mudarMes(1)">&#9654;</button>
+            </div>
+        </div>
+        <div id="calendario-body"></div>
     </div>
 
     <script src="./src/js/moment.min.js"></script>
