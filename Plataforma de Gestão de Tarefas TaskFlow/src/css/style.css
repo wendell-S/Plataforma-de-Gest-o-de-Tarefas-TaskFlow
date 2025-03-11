@@ -279,13 +279,14 @@ body {
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    width: 300px; /* Ajuste a largura do calendário */
+    width: 320px; /* Ajuste a largura do calendário */
 }
 
 .calendario-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    position: relative;
     margin-bottom: 20px;
 }
 
@@ -295,15 +296,19 @@ body {
 }
 
 .calendario-header #calendario-close {
+    position: absolute;
+    right: 0;
+    top: 0;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 24px; /* Tornar o X mais grosso */
     color: var(--cor-fundo);
 }
 
 .calendario-nav {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
+    margin-top: 20px;
 }
 
 .calendario-nav button {
@@ -323,6 +328,11 @@ body {
 .calendario table {
     width: 100%;
     border-collapse: collapse;
+}
+
+.calendario th {
+    color: var(--cor-fundo);
+    padding: 5px 0;
 }
 
 .calendario td {

@@ -214,8 +214,14 @@ function atualizarCalendario() {
 
     const diasNoMes = mesAtual.daysInMonth();
     const primeiroDia = mesAtual.startOf('month').day();
+    const diasDaSemana = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
 
-    let calendarioHtml = "<table><tr>";
+    let calendarioHtml = "<table><thead><tr>";
+    diasDaSemana.forEach(dia => {
+        calendarioHtml += `<th>${dia}</th>`;
+    });
+    calendarioHtml += "</tr></thead><tbody><tr>";
+
     for (let i = 0; i < primeiroDia; i++) {
         calendarioHtml += "<td></td>";
     }
@@ -225,7 +231,7 @@ function atualizarCalendario() {
         }
         calendarioHtml += `<td onclick="selecionarData(${dia})">${dia}</td>`;
     }
-    calendarioHtml += "</tr></table>";
+    calendarioHtml += "</tr></tbody></table>";
 
     $calendarioBody.innerHTML = calendarioHtml;
 }
