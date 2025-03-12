@@ -88,9 +88,14 @@ function generateCards() {
                 <b>Prazo</b>
                 <span>${formatarDate}</span>
              </div>
-             <button class="edit-btn" onclick="editarTask(${task.id})">Editar</button>
-             <button class="delete-btn" onclick="deletarTask(${task.id})">Deletar</button>
-             <button class="concluida-btn" onclick="marcarConcluida(${task.id})">Concluir</button>
+             <div class="buttons">
+                <button class="options-btn" onclick="toggleOptions(${task.id})">Opções</button>
+                <div class="options-menu" id="options-${task.id}">
+                    <button class="edit-btn" onclick="editarTask(${task.id})">Editar</button>
+                    <button class="delete-btn" onclick="deletarTask(${task.id})">Deletar</button>
+                    <button class="concluida-btn" onclick="marcarConcluida(${task.id})">Concluir</button>
+                </div>
+             </div>
           </div>
         `;
 
@@ -111,6 +116,11 @@ function generateCards() {
     });
 
     updateTaskCounts();
+}
+
+function toggleOptions(id) {
+    const optionsMenu = document.getElementById(`options-${id}`);
+    optionsMenu.style.display = optionsMenu.style.display === 'block' ? 'none' : 'block';
 }
 
 function criarTask() {
