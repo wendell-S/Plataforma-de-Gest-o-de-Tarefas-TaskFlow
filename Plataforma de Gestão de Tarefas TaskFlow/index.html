@@ -2,6 +2,7 @@
 <html lang="PT-br">
 
 <head>
+    <!-- Metadados e links para estilos e fontes -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TaskFlow</title>
@@ -13,6 +14,7 @@
 </head>
 
 <body>
+    <!-- Cabeçalho com logo e botão para criar nova tarefa -->
     <div class="header">
         <div class="logo-container">
             <img src="/Plataforma de Gestão de Tarefas TaskFlow/src/foto/coffee.png" alt="Logo" class="logo">
@@ -21,42 +23,42 @@
         <button class="primario" onclick="abrirModal()">Nova Tarefa</button>
     </div>
 
+    <!-- Contêiner principal com colunas de tarefas -->
     <div class="container">
-
+        <!-- Coluna "A Fazer" -->
         <div class="coluna" id="todoColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
             <div class="cabeca">
                 <span>A Fazer (<span id="todoCount">0</span>)</span>
             </div>
-            <div class="body">
-
-            </div>
+            <div class="body"></div>
         </div>
+
+        <!-- Coluna "Em Progresso" -->
         <div class="coluna" id="inProgressColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
             <div class="cabeca">
                 <span>Em Progresso (<span id="inProgressCount">0</span>)</span>
             </div>
-            <div class="body">
-
-            </div>
+            <div class="body"></div>
         </div>
+
+        <!-- Coluna "Finalizado" -->
         <div class="coluna" id="doneColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
             <div class="cabeca">
                 <span>Finalizado (<span id="doneCount">0</span>)</span>
             </div>
-            <div class="body">
-
-            </div>
+            <div class="body"></div>
         </div>
+
+        <!-- Coluna "Arquivado" -->
         <div class="coluna" id="archivedColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
             <div class="cabeca">
                 <span>Arquivado (<span id="archivedCount">0</span>)</span>
             </div>
-            <div class="body">
-
-            </div>
+            <div class="body"></div>
         </div>
     </div>
 
+    <!-- Modal para criar ou editar tarefas -->
     <div id="modal">
         <div class="box">
             <div class="head">
@@ -91,6 +93,7 @@
         </div>
     </div>
 
+    <!-- Scripts para funcionalidades -->
     <script src="./src/js/moment.min.js"></script>
     <script src="./src/js/index.js"></script>
 

@@ -1,3 +1,4 @@
+/* Variáveis de cores */
 :root {
     --primario-color: #34261c;
     --segundaria-color: #D7CCC8;
@@ -8,6 +9,7 @@
     --cor-modal-caixa: #5D4037;
 }
 
+/* Reset de estilos */
 * {
     margin: 0;
     padding: 0;
@@ -15,11 +17,13 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/* Estilo do corpo */
 body {
     background-color: var(--segundaria-color);
     color: var(--cor-letras);
 }
 
+/* Estilo do cabeçalho */
 .header {
     width: 100%;
     display: flex;
@@ -34,17 +38,20 @@ body {
     font-size: 24px;
 }
 
+/* Container do logo */
 .logo-container {
     display: flex;
     align-items: center;
 }
 
+/* Estilo do logo */
 .logo {
     width: 40px;
     height: 40px;
     margin-right: 10px;
 }
 
+/* Estilo dos botões */
 .primario, .edit-btn, .delete-btn, .concluida-btn, .options-btn {
     border: none;
     background-color: var(--primario-color);
@@ -66,10 +73,12 @@ body {
     transform: translateY(0);
 }
 
+/* Estilo específico para botões no cabeçalho */
 .header .primario {
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Mais sombreamento nos botões do header */
 }
 
+/* Estilo do container principal */
 .container {
     display: flex;
     gap: 20px;
@@ -78,6 +87,7 @@ body {
     padding: 40px 0;
 }
 
+/* Estilo das colunas */
 .coluna {
     width: 300px;
     background-color: var(--cor-fundo);
@@ -87,6 +97,7 @@ body {
     border-image: linear-gradient(to bottom right, #8D6E63, #D7CCC8) 1;
 }
 
+/* Cabeçalho das colunas */
 .coluna .cabeca {
     background-color: var(--primario-color);
     color: var(--cor-fundo);
@@ -95,6 +106,7 @@ body {
     font-size: 18px;
 }
 
+/* Corpo das colunas */
 .coluna .body {
     padding: 20px;
     display: flex;
@@ -105,10 +117,12 @@ body {
     transition: border-color 0.3s;
 }
 
+/* Estilo para quando o corpo da coluna está em dragover */
 .coluna .body.dragover {
     border-color: var(--primario-color);
 }
 
+/* Estilo dos cartões */
 .card {
     background-color: var(--segundaria-color);
     border-radius: 5px;
@@ -123,11 +137,13 @@ body {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
+/* Informações dentro dos cartões */
 .card .info {
     font-size: 14px;
     color: var(--cor-letras);
 }
 
+/* Botões dentro dos cartões */
 .card .buttons {
     display: flex;
     justify-content: space-between;
@@ -139,6 +155,7 @@ body {
     margin: 0 5px;
 }
 
+/* Menu de opções dentro dos cartões */
 .card .options-menu {
     display: none;
     flex-direction: column;
@@ -146,33 +163,40 @@ body {
     margin-top: 10px;
 }
 
+/* Estilo para cartões de aviso */
 .card.warning {
     background-color: #FFCC80;
 }
 
+/* Estilo para cartões urgentes */
 .card.urgent {
     background-color: #f96a3e;
 }
 
+/* Estilo para cartões de prioridade baixa */
 .card.baixa {
     border: 2px solid #2eb332;
     box-shadow: 0 0 10px rgba(46, 179, 50, 0.5);
 }
 
+/* Estilo para cartões de prioridade média */
 .card.media {
     border: 2px solid #FFCC00;
 }
 
+/* Estilo para cartões de prioridade alta */
 .card.alta {
     border: 2px solid #fd0000;
     box-shadow: 0 0 10px rgba(253, 0, 0, 0.5);
 }
 
+/* Estilo para cartões concluídos */
 .card.concluida {
     background-color: #d3d3d3; /* Tom cinza */
     text-decoration: line-through; /* Riscar o texto */
 }
 
+/* Animação de desintegração */
 @keyframes desintegrar {
     0% {
         opacity: 1;
@@ -184,10 +208,12 @@ body {
     }
 }
 
+/* Classe para aplicar animação de desintegração */
 .desintegrar {
     animation: desintegrar 0.5s forwards;
 }
 
+/* Estilo do modal */
 #modal {
     position: fixed;
     top: 0;
@@ -200,6 +226,7 @@ body {
     align-items: center;
 }
 
+/* Caixa dentro do modal */
 #modal .box {
     background-color: var(--cor-modal-caixa);
     width: 400px;
@@ -208,6 +235,7 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* Cabeçalho da caixa do modal */
 #modal .box .head {
     display: flex;
     justify-content: space-between;
@@ -230,6 +258,7 @@ body {
     color: var(--cor-fundo);
 }
 
+/* Formulário dentro da caixa do modal */
 #modal .box .form {
     padding: 20px;
 }
@@ -273,6 +302,7 @@ body {
     background-color: var(--cor-borda);
 }
 
+/* Estilo específico para botões de exclusão */
 .delete-btn {
     background-color: #FF7043;
 }
@@ -281,6 +311,7 @@ body {
     background-color: #e81818;
 }
 
+/* Estilo específico para botões de edição */
 .edit-btn {
     background-color: #4CAF50;
 }
@@ -289,6 +320,7 @@ body {
     background-color: #45a049;
 }
 
+/* Estilo específico para botões de conclusão */
 .concluida-btn {
     background-color: #4CAF50;
 }
