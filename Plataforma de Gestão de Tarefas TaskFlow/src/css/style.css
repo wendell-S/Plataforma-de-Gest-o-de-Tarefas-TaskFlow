@@ -45,7 +45,7 @@ body {
     margin-right: 10px;
 }
 
-.primario, .edit-btn, .delete-btn, .concluida-btn, .calendario-nav button, .options-btn {
+.primario, .edit-btn, .delete-btn, .concluida-btn, .options-btn {
     border: none;
     background-color: var(--primario-color);
     color: #ffffff; /* Letra branca */
@@ -57,12 +57,12 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Mais sombreamento */
 }
 
-.primario:hover, .edit-btn:hover, .delete-btn:hover, .concluida-btn:hover, .calendario-nav button:hover, .options-btn:hover {
+.primario:hover, .edit-btn:hover, .delete-btn:hover, .concluida-btn:hover, .options-btn:hover {
     background-color: var(--cor-borda);
     transform: translateY(-2px);
 }
 
-.primario:active, .edit-btn:active, .delete-btn:active, .concluida-btn:active, .calendario-nav button:active, .options-btn:active {
+.primario:active, .edit-btn:active, .delete-btn:active, .concluida-btn:active, .options-btn:active {
     transform: translateY(0);
 }
 
@@ -295,91 +295,5 @@ body {
 
 .concluida-btn:hover {
     background-color: #45a049;
-}
-
-.calendario {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: var(--cor-modal-caixa);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    width: 320px; /* Ajuste a largura do calendário */
-}
-
-.calendario-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    margin-bottom: 20px;
-}
-
-.calendario-header h2 {
-    margin: 0;
-    color: var(--cor-fundo);
-}
-
-.calendario-header #calendario-close {
-    position: absolute;
-    right: 0;
-    top: 0;
-    cursor: pointer;
-    font-size: 24px; /* Tornar o X mais grosso */
-    color: var(--cor-fundo);
-}
-
-.calendario-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.calendario-nav button {
-    background-color: var(--primario-color);
-    color: var(--cor-fundo);
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.calendario-nav button:hover {
-    background-color: var(--cor-borda);
-    transform: translateY(-2px);
-}
-
-.calendario-nav button:active {
-    transform: translateY(0);
-}
-
-.calendario table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.calendario th {
-    color: var(--cor-fundo);
-    padding: 5px 0;
-}
-
-.calendario td {
-    width: 14.28%;
-    height: 40px;
-    text-align: center;
-    border: 1px solid var(--cor-borda);
-    color: var(--cor-fundo);
-    cursor: pointer; /* Adiciona cursor de ponteiro para dias selecionáveis */
-}
-
-.calendario td:hover {
-    background-color: var(--cor-borda); /* Adiciona efeito de hover */
 }
 
