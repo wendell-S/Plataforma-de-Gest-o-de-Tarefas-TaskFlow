@@ -243,6 +243,28 @@ function updateTaskCounts() {
     document.getElementById('archivedCount').innerText = $archivedColumnBody.children.length;
 }
 
+// Função para exibir notificações de tarefas próximas do prazo
+function verificarNotificacoes() {
+    todoList.forEach(task => {
+        const daysLeft = moment(task.deadline).diff(moment(), 'days');
+        if (daysLeft === 1) {
+            alert(`A tarefa "${task.descriçao}" está próxima do prazo!`);
+        }
+    });
+}
+
+// Função para filtrar tarefas por prioridade
+function filtrarPorPrioridade(prioridade) {
+    const tarefasFiltradas = todoList.filter(task => task.prioridade.toLowerCase() === prioridade.toLowerCase());
+    console.log(`Tarefas com prioridade ${prioridade}:`, tarefasFiltradas);
+}
+
+// Adiciona um evento para verificar notificações ao carregar a página
+document.addEventListener('DOMContentLoaded', () => {
+    carregarTarefas();
+    verificarNotificacoes();
+});
+
 // Carrega as tarefas ao iniciar
 carregarTarefas();
 

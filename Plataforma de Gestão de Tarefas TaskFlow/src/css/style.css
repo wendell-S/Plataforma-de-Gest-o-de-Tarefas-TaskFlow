@@ -329,3 +329,13 @@ body {
     background-color: #45a049;
 }
 
+/* Estilo para o campo de busca por prioridade */
+#searchPriority {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 5px;
+    margin-left: 10px;
+    width: 200px;
+}
+
