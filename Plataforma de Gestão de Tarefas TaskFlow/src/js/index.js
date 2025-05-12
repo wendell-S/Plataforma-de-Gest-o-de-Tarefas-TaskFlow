@@ -67,8 +67,8 @@ function generateCards() {
 
     // Adiciona cada tarefa à coluna correspondente
     todoList.forEach(function(task) {
-        const formatarDate = moment(task.deadline).format('DD/MM/YYYY');
-        const daysLeft = moment(task.deadline).diff(moment(), 'days');
+        const formatarDate = formatarData(task.deadline);
+        const daysLeft = calcularDiferencaDias(task.deadline, moment());
         let urgencyClass = '';
 
         // Define a classe de urgência com base no prazo
@@ -210,7 +210,7 @@ function filtrarTarefas(prioridade) {
 
 // Função para adicionar notificações de prazo
 function adicionarNotificacao(task) {
-    const daysLeft = moment(task.deadline).diff(moment(), 'days');
+    const daysLeft = calcularDiferencaDias(task.deadline, moment());
     if (daysLeft <= 1) {
         alert(`A tarefa "${task.descriçao}" está próxima do prazo!`);
     }
@@ -246,7 +246,7 @@ function updateTaskCounts() {
 // Função para exibir notificações de tarefas próximas do prazo
 function verificarNotificacoes() {
     todoList.forEach(task => {
-        const daysLeft = moment(task.deadline).diff(moment(), 'days');
+        const daysLeft = calcularDiferencaDias(task.deadline, moment());
         if (daysLeft === 1) {
             alert(`A tarefa "${task.descriçao}" está próxima do prazo!`);
         }
@@ -258,6 +258,37 @@ function filtrarPorPrioridade(prioridade) {
     const tarefasFiltradas = todoList.filter(task => task.prioridade.toLowerCase() === prioridade.toLowerCase());
     console.log(`Tarefas com prioridade ${prioridade}:`, tarefasFiltradas);
 }
+
+// Função para formatar uma data no formato "DD/MM/YYYY"
+function formatarData(data) {
+    return moment(data).format('DD/MM/YYYY');
+}
+
+// Função para calcular a diferença em dias entre duas datas
+function calcularDiferencaDias(data1, data2) {
+    const diff = moment(data1).diff(moment(data2), 'days');
+    return diff;
+}
+
+// Exemplo de uso: exibir a data atual formatada
+function exibirDataAtual() {
+    const dataAtual = moment().format('DD/MM/YYYY');
+    console.log(`Data atual: ${dataAtual}`);
+}
+
+// Exemplo de uso: calcular diferença entre a data atual e o prazo de uma tarefa
+function verificarPrazo(task) {
+    const diasRestantes = calcularDiferencaDias(task.deadline, moment());
+    console.log(`Dias restantes para a tarefa "${task.descriçao}": ${diasRestantes}`);
+}
+
+// Adicione chamadas de exemplo para testar as funções
+document.addEventListener('DOMContentLoaded', () => {
+    exibirDataAtual();
+    if (todoList.length > 0) {
+        verificarPrazo(todoList[0]); // Verifica o prazo da primeira tarefa
+    }
+});
 
 // Adiciona um evento para verificar notificações ao carregar a página
 document.addEventListener('DOMContentLoaded', () => {

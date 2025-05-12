@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+
+<head>
+    <!-- Metadados e links para estilos e fontes -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="icon" href="/Plataforma de Gestão de Tarefas TaskFlow/src/foto/coffee.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Cabeçalho com logo e botão para criar nova tarefa -->
+    <div class="header">
+        <div class="logo-container">
+            <img src="/Plataforma de Gestão de Tarefas TaskFlow/src/foto/coffee.png" alt="Logo" class="logo">
+            <h1>TaskFlow</h1>
+        </div>
+        <div id="dataAtual" style="font-size: 14px; color: #ffffff;">Data: --/--/----</div>
+        <button class="primario" onclick="abrirModal()">Nova Tarefa</button>
+        <!-- Campo de busca por prioridade -->
+        <input type="text" id="searchPriority" placeholder="Buscar por prioridade" />
+        <button class="primario" onclick="filtrarPorPrioridade(document.getElementById('searchPriority').value)">Filtrar</button>
+    </div>
+
+    <!-- Contêiner principal com colunas de tarefas -->
+    <div class="container">
+        <!-- Coluna "A Fazer" -->
+        <div class="coluna" id="todoColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="cabeca">
+                <span>A Fazer (<span id="todoCount">0</span>)</span>
+            </div>
+            <div class="body"></div>
+        </div>
+
+        <!-- Coluna "Em Progresso" -->
+        <div class="coluna" id="inProgressColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="cabeca">
+                <span>Em Progresso (<span id="inProgressCount">0</span>)</span>
+            </div>
+            <div class="body"></div>
+        </div>
+
+        <!-- Coluna "Finalizado" -->
+        <div class="coluna" id="doneColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="cabeca">
+                <span>Finalizado (<span id="doneCount">0</span>)</span>
+            </div>
+            <div class="body"></div>
+        </div>
+
+        <!-- Coluna "Arquivado" -->
+        <div class="coluna" id="archivedColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="cabeca">
+                <span>Arquivado (<span id="archivedCount">0</span>)</span>
+            </div>
+            <div class="body"></div>
+        </div>
+    </div>
+
+    <!-- Modal para criar ou editar tarefas -->
+    <div id="modal">
+        <div class="box">
+            <div class="head">
+                <span>Nova Tarefa</span>
+                <button onclick="fecharModal()">X</button>
+            </div>
+
+            <div class="form">
+                <input type="hidden" id="idInput">
+
+                <div class="form-group">
+                    <label for="descript">Descrição</label>
+                    <textarea id="descript" rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="prioridade">Prioridade</label>
+                    <select id="prioridade">
+                        <option>Baixa</option>
+                        <option>Média</option>
+                        <option>Alta</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="deadline">Prazo</label>
+                    <input type="date" id="deadline">
+                </div>
+
+                <button class="primario" onclick="criarTask()">Cadastrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts para funcionalidades -->
+    <script src="./src/js/moment.min.js"></script>
+    <script src="./src/js/index.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,345 @@
+/* Variáveis de cores */
+:root {
+    --primario-color: #34261c;
+    --segundaria-color: #D7CCC8;
+    --cor-letras: #2a1c1a;
+    --cor-fundo: #A1887F;
+    --cor-borda: #8D6E63;
+    --cor-modal-fundo: rgba(67, 42, 38, 0.7);
+    --cor-modal-caixa: #5D4037;
+}
+
+/* Reset de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Slab', 'Poppins', sans-serif; /* Adicionada a fonte "Roboto Slab" */
+}
+
+/* Estilo do corpo */
+body {
+    background-color: var(--segundaria-color);
+    color: var(--cor-letras);
+}
+
+/* Estilo do cabeçalho */
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primario-color);
+    padding: 20px;
+    color: var(--cor-fundo);
+}
+
+.header h1 {
+    font-size: 24px;
+}
+
+/* Container do logo */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Estilo do logo */
+.logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+/* Estilo dos botões */
+.primario, .edit-btn, .delete-btn, .concluida-btn, .options-btn {
+    border: none;
+    background-color: var(--primario-color);
+    color: #ffffff; /* Letra branca */
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Mais sombreamento */
+}
+
+.primario:hover, .edit-btn:hover, .delete-btn:hover, .concluida-btn:hover, .options-btn:hover {
+    background-color: var(--cor-borda);
+    transform: translateY(-2px);
+}
+
+.primario:active, .edit-btn:active, .delete-btn:active, .concluida-btn:active, .options-btn:active {
+    transform: translateY(0);
+}
+
+/* Estilo específico para botões no cabeçalho */
+.header .primario {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Mais sombreamento nos botões do header */
+}
+
+/* Estilo do container principal */
+.container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 0;
+}
+
+/* Estilo das colunas */
+.coluna {
+    width: 300px;
+    background-color: var(--cor-fundo);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 2px solid;
+    border-image: linear-gradient(to bottom right, #8D6E63, #D7CCC8) 1;
+}
+
+/* Cabeçalho das colunas */
+.coluna .cabeca {
+    background-color: var(--primario-color);
+    color: var(--cor-fundo);
+    text-align: center;
+    padding: 15px;
+    font-size: 18px;
+}
+
+/* Corpo das colunas */
+.coluna .body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-height: 200px;
+    border: 2px dashed transparent;
+    transition: border-color 0.3s;
+}
+
+/* Estilo para quando o corpo da coluna está em dragover */
+.coluna .body.dragover {
+    border-color: var(--primario-color);
+}
+
+/* Estilo dos cartões */
+.card {
+    background-color: var(--segundaria-color);
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+    cursor: move;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Informações dentro dos cartões */
+.card .info {
+    font-size: 14px;
+    color: var(--cor-letras);
+}
+
+/* Botões dentro dos cartões */
+.card .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.card .buttons button {
+    flex: 1;
+    margin: 0 5px;
+}
+
+/* Menu de opções dentro dos cartões */
+.card .options-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+/* Estilo para cartões de aviso */
+.card.warning {
+    background-color: #FFCC80;
+}
+
+/* Estilo para cartões urgentes */
+.card.urgent {
+    background-color: #f96a3e;
+}
+
+/* Estilo para cartões de prioridade baixa */
+.card.baixa {
+    border: 2px solid #2eb332;
+    box-shadow: 0 0 10px rgba(46, 179, 50, 0.5);
+}
+
+/* Estilo para cartões de prioridade média */
+.card.media {
+    border: 2px solid #FFCC00;
+}
+
+/* Estilo para cartões de prioridade alta */
+.card.alta {
+    border: 2px solid #fd0000;
+    box-shadow: 0 0 10px rgba(253, 0, 0, 0.5);
+}
+
+/* Estilo para cartões concluídos */
+.card.concluida {
+    background-color: #d3d3d3; /* Tom cinza */
+    text-decoration: line-through; /* Riscar o texto */
+}
+
+/* Animação de desintegração */
+@keyframes desintegrar {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+/* Classe para aplicar animação de desintegração */
+.desintegrar {
+    animation: desintegrar 0.5s forwards;
+}
+
+/* Estilo do modal */
+#modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--cor-modal-fundo);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Caixa dentro do modal */
+#modal .box {
+    background-color: var(--cor-modal-caixa);
+    width: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Cabeçalho da caixa do modal */
+#modal .box .head {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background-color: var(--primario-color);
+    color: var(--cor-fundo);
+}
+
+#modal .box .head span {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#modal .box .head button {
+    border: none;
+    background: none;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    color: var(--cor-fundo);
+}
+
+/* Formulário dentro da caixa do modal */
+#modal .box .form {
+    padding: 20px;
+}
+
+#modal .box .form .form-group {
+    margin-bottom: 20px;
+}
+
+#modal .box .form label {
+    display: block;
+    font-size: 14px;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+#modal .box .form textarea,
+#modal .box .form select,
+#modal .box .form input {
+    width: 100%;
+    border-radius: 5px;
+    font-size: 14px;
+    border: 1px solid var(--cor-borda);
+    padding: 10px;
+    color: #ffffff;
+    background-color: var(--cor-fundo);
+}
+
+#modal .box .form button {
+    display: block;
+    margin-left: auto;
+    background-color: var(--primario-color);
+    color: var(--cor-fundo);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#modal .box .form button:hover {
+    background-color: var(--cor-borda);
+}
+
+/* Estilo específico para botões de exclusão */
+.delete-btn {
+    background-color: #FF7043;
+}
+
+.delete-btn:hover {
+    background-color: #e81818;
+}
+
+/* Estilo específico para botões de edição */
+.edit-btn {
+    background-color: #4CAF50;
+}
+
+.edit-btn:hover {
+    background-color: #45a049;
+}
+
+/* Estilo específico para botões de conclusão */
+.concluida-btn {
+    background-color: #4CAF50;
+}
+
+.concluida-btn:hover {
+    background-color: #45a049;
+}
+
+/* Estilo para o campo de busca por prioridade */
+#searchPriority {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 5px;
+    margin-left: 10px;
+    width: 200px;
+}
+
+#dataAtual {
+    margin-left: 20px;
+    font-weight: bold;
+}
