@@ -23,15 +23,15 @@ body {
     color: var(--cor-letras);
 }
 
-/* Estilo do cabeçalho */
+/* Suavizar bordas do cabeçalho */
 .header {
-    width: 100%;
+    border-radius: 0 0 10px 10px; /* Bordas arredondadas na parte inferior */
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--primario-color);
-    padding: 20px;
-    color: var(--cor-fundo);
 }
 
 .header h1 {
@@ -51,7 +51,20 @@ body {
     margin-right: 10px;
 }
 
-/* Estilo dos botões */
+/* Suavizar bordas dos botões */
+button.primario {
+    border-radius: 8px; /* Bordas arredondadas */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button.primario:hover {
+    background-color: #6c757d; /* Cor de hover */
+    transform: scale(1.05); /* Leve aumento no hover */
+}
+
 .primario, .edit-btn, .delete-btn, .concluida-btn, .options-btn {
     border: none;
     background-color: var(--primario-color);
@@ -87,11 +100,12 @@ body {
     padding: 40px 0;
 }
 
-/* Estilo das colunas */
+/* Suavizar bordas das colunas */
 .coluna {
     width: 300px;
     background-color: var(--cor-fundo);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
     overflow: hidden;
     border: 2px solid;
     border-image: linear-gradient(to bottom right, #8D6E63, #D7CCC8) 1;
@@ -122,19 +136,19 @@ body {
     border-color: var(--primario-color);
 }
 
-/* Estilo dos cartões */
+/* Suavizar bordas das tarefas */
 .card {
-    background-color: var(--segundaria-color);
-    border-radius: 5px;
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
     padding: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s;
-    cursor: move;
+    background-color: #f8f9fa;
+    margin-bottom: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transform: scale(1.02); /* Leve aumento no hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra mais forte no hover */
 }
 
 /* Informações dentro dos cartões */
@@ -213,6 +227,14 @@ body {
     animation: desintegrar 0.5s forwards;
 }
 
+/* Suavizar bordas do modal */
+#modal .box {
+    border-radius: 12px; /* Bordas arredondadas */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Sombra suave */
+    padding: 20px;
+    background-color: #ffffff;
+}
+
 /* Estilo do modal */
 #modal {
     position: fixed;
@@ -272,6 +294,16 @@ body {
     font-size: 14px;
     color: #ffffff;
     margin-bottom: 5px;
+}
+
+/* Suavizar bordas dos campos de formulário */
+textarea, select, input[type="date"] {
+    border-radius: 6px; /* Bordas arredondadas */
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 #modal .box .form textarea,
